@@ -1,0 +1,35 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-lg border-success">
+                <div class="card-header bg-success text-white">
+                    <h3 class="mb-0"><i class="bi bi-check-circle-fill"></i> Povoamento Concluído</h3>
+                </div>
+                <div class="card-body text-center">
+
+                    {{!-- Mensagem de Sucesso (Ex: 5 produtos foram inseridos) --}}
+                    <h5 class="card-title text-success">{{mensagem}}</h5>
+
+                    <hr>
+
+                    <p class="card-text text-muted">Resumo da Operação:</p>
+                    <ul class="list-group list-group-flush mb-4">
+                        <li class="list-group-item">
+                            <span class="float-start fw-bold">Documentos Removidos:</span>
+                            <span class="float-end text-danger">{{deletados}}</span>
+                        </li>
+                        <li class="list-group-item">
+                            <span class="float-start fw-bold">Documentos Inseridos:</span>
+                            <span class="float-end text-success">{{inseridos}}</span>
+                        </li>
+                    </ul>
+
+                    {{!-- Botão de Navegação --}}
+                    <a href="/" class="btn btn-primary btn-lg mt-3">
+                        <i class="bi bi-shop"></i> Ir para o Catálogo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+<h1 class="mb-4">{{titulo_pagina}}</h1>
+
+<div class="card shadow-lg">
+    <div class="card-header bg-info text-white">
+        <h4 class="mb-0">Produto Selecionado: {{produto.nome}}</h4>
+    </div>
+    <div class="card-body">
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <p class="fs-5 mb-1">Preço Unitário: <span class="fw-bold text-success">R$ {{produto.preco}}</span></p>
+            </div>
+            <div class="col-md-6">
+                <p class="fs-5 mb-1">Estoque Disponível: <span class="fw-bold">{{produto.estoque}}</span> und.</p>
+            </div>
+        </div>
+
+        <form action="/finaliza-compra" method="POST">
+            <input type="hidden" name="id_produto" value="{{produto.id}}">
+            <input type="hidden" name="preco_unitario_produto" value="{{produto.preco}}">
+
+            <div class="mb-3">
+                <label for="quantidade_compra" class="form-label">Quantidade Desejada:</label>
+                <input type="number" class="form-control" id="quantidade_compra" name="quantidade_compra" min="1"
+                    max="{{max_estoque}}" value="1" required>
+                <div id="emailHelp" class="form-text">Máximo de {{max_estoque}} unidades em estoque.</div>
+            </div>
+
+            <div class="d-flex justify-content-end pt-3 border-top">
+                <a href="/" class="btn btn-secondary me-2">
+                    <i class="bi bi-arrow-left"></i> Voltar
+                </a>
+                <button type="submit" class="btn btn-success">
+                    <i class="bi bi-check-circle"></i> Finalizar Compra
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

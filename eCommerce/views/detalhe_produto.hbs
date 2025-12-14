@@ -1,0 +1,42 @@
+<div class="container my-5">
+    <div class="row">
+
+        {{!-- Imagem do Produto (placeholder) --}}
+        <div class="col-md-5">
+            <img src="/images/produto_padrao.png" class="img-fluid rounded-start" alt="Imagem do Produto">
+        </div>
+
+        {{!-- Detalhes Principais --}}
+        <div class="col-md-7">
+            <h1 class="display-4">{{produto.nome}}</h1>
+            <p class="lead text-muted">{{produto.descricao}}</p>
+
+            <h2 class="text-success my-3">R$ {{produto.preco}}</h2>
+
+            {{#if produto.estoque}}
+            <span class="badge bg-success fs-6">Em Estoque: {{produto.estoque}} unidades</span>
+            {{else}}
+            <span class="badge bg-danger fs-6">Esgotado</span>
+            {{/if}}
+
+            <hr class="my-4">
+
+            {{!-- Tabela de Especificações (Detalhes) --}}
+            <h4 class="mb-3">Especificações Técnicas:</h4>
+            <ul class="list-group list-group-flush">
+                {{!-- 💡 Loop para exibir os detalhes chave-valor do MongoDB --}}
+                {{#each produto.detalhes}}
+                <li class="list-group-item">
+                    <span class="fw-bold text-primary">{{@key}}:</span>
+                    <span>{{this}}</span>
+                </li>
+                {{/each}}
+            </ul>
+
+            <button class="btn btn-primary btn-lg mt-4">
+                <i class="bi bi-cart-plus-fill"></i> Adicionar ao Carrinho
+            </button>
+
+        </div>
+    </div>
+</div>

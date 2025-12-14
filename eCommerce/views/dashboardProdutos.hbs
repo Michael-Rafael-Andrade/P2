@@ -1,0 +1,82 @@
+<h1 class="mb-4">{{titulo_pagina}}</h1>
+
+<div class="row g-4">
+    <div class="col-md-6 col-lg-3">
+        <div class="card text-white bg-primary shadow-sm h-100">
+            <div class="card-body">
+                <h5 class="card-title"><i class="bi bi-box-seam"></i> Total de Produtos</h5>
+                <p class="card-text fs-1 fw-bold">{{stats.totalProdutos}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3">
+        <div class="card text-white bg-warning shadow-sm h-100">
+            <div class="card-body">
+                <h5 class="card-title"><i class="bi bi-exclamation-triangle"></i> Baixo Estoque (< 10)</h5>
+                <p class="card-text fs-1 fw-bold">{{stats.baixoEstoque}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3">
+        <div class="card text-white bg-info shadow-sm h-100">
+            <div class="card-body">
+                <h5 class="card-title"><i class="bi bi-laptop"></i> Computadores/Notebooks</h5>
+                <p class="card-text fs-1 fw-bold">{{stats.computadores}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3">
+        <div class="card text-white bg-success shadow-sm h-100">
+            <div class="card-body">
+                <h5 class="card-title"><i class="bi bi-phone"></i> Dispositivos Móveis</h5>
+                <p class="card-text fs-1 fw-bold">{{stats.dispositivosMoveis}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h2 class="mt-5 mb-3 border-bottom pb-2">Distribuição de Preços</h2>
+
+<div class="row g-4">
+    <div class="col-md-6 col-lg-3">
+        <div class="card shadow-sm h-100">
+            <div class="card-body">
+                <h6 class="card-title text-muted">R$ 0,00 a R$ 100,00</h6>
+                <p class="card-text fs-3 fw-bold">{{stats.faixa0a100}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-lg-3">
+        <div class="card shadow-sm h-100">
+            <div class="card-body">
+                <h6 class="card-title text-muted">R$ 101,00 a R$ 1.000,00</h6>
+                <p class="card-text fs-3 fw-bold">{{stats.faixa101a1000}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-lg-3">
+        <div class="card shadow-sm h-100">
+            <div class="card-body">
+                <h6 class="card-title text-muted">R$ 1.001,00 a R$ 5.000,00</h6>
+                <p class="card-text fs-3 fw-bold">{{stats.faixa1001a5000}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-lg-3">
+        <div class="card shadow-sm h-100">
+            <div class="card-body">
+                <h6 class="card-title text-muted">Acima de R$ 5.000,00</h6>
+                <p class="card-text fs-3 fw-bold">{{stats.faixaAcima5000}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mt-5 text-end">
+    <a href="/" class="btn btn-secondary">
+        <i class="bi bi-arrow-left"></i> Voltar
+    </a>
+</div>

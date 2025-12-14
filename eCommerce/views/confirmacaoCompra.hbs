@@ -1,0 +1,24 @@
+<div class="card shadow-lg text-center mt-5">
+    <div class="card-header {{#if erro}}bg-danger{{else}}bg-success{{/if}} text-white">
+        <h4 class="mb-0">
+            {{#if erro}}
+            <i class="bi bi-x-octagon"></i> Falha na Compra
+            {{else}}
+            <i class="bi bi-check-circle"></i> Compra Concluída
+            {{/if}}
+        </h4>
+    </div>
+    <div class="card-body">
+        <p class="lead mt-3">{{mensagem}}</p>
+
+        {{#if nome_usuario}}
+        <p class="text-muted">Agradecemos a preferência, {{nome_usuario}}!</p>
+        {{/if}}
+
+        <div class="mt-4">
+            <a href="/" class="btn btn-primary btn-lg">
+                <i class="bi bi-arrow-left"></i> Voltar para a Tela Principal
+            </a>
+        </div>
+    </div>
+</div>

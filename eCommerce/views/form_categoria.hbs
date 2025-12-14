@@ -1,0 +1,55 @@
+<div class="container my-5">
+    
+    {{!-- Título dinâmico: Se estiver em editMode, use o nome da categoria --}}
+    <h2>{{#if editMode}}Editar Categoria: {{categoria.nome}}{{else}}{{titulo_pagina}}{{/if}}</h2>
+    <p class="lead">Preencha os campos abaixo para adicionar ou atualizar a categoria.</p>
+    
+    {{!-- 🛣️ Ação Dinâmica: Aponta para /categorias no modo criação, ou para /categorias/:id no modo edição --}}
+    <form action="{{#if editMode}}/categorias/{{categoria.id}}{{else}}/categorias{{/if}}" method="POST">
+        
+        {{!-- 1. CAMPO OCULTO (HIDDEN): Envia o ID apenas se estiver em modo de edição --}}
+        {{#if editMode}}
+        <input type="hidden" name="id" value="{{categoria.id}}">
+        {{/if}}
+        
+        <div class="mb-3">
+            <label for="nome" class="form-label">Nome da Categoria</label>
+            <input 
+                type="text" 
+                class="form-control" 
+                id="nome" 
+                name="nome"
+                placeholder="Ex: Eletrônicos" 
+                required
+                maxlength="50"
+                {{!-- CRUCIAL: Preenche o valor se estiver em modo de edição --}}
+                {{#if editMode}}
+                    value="{{categoria.nome}}"
+                {{/if}}
+            >
+        </div>
+        
+        <div class="mb-3">
+            <label for="descricao" class="form-label">Descrição (Opcional)</label>
+            <input 
+                type="text" 
+                class="form-control" 
+                id="descricao" 
+                name="descricao" 
+                placeholder="Ex: Produtos com circuitos e baterias."
+                maxlength="255"
+                {{#if editMode}}
+                    value="{{categoria.descricao}}"
+                {{/if}}
+            >
+        </div>
+        
+        {{!-- Texto do Botão Dinâmico --}}
+        <button type="submit" class="btn btn-primary me-2">
+            <i class="bi bi-save"></i> {{#if editMode}}Atualizar Categoria{{else}}Salvar Categoria{{/if}}
+        </button>
+        <a href="/categorias" class="btn btn-secondary">
+            <i class="bi bi-arrow-left-circle"></i> Voltar para a Lista
+        </a>
+    </form>
+</div>

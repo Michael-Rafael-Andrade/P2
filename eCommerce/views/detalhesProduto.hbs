@@ -1,0 +1,45 @@
+<h1 class="mb-4">{{titulo_pagina}}</h1>
+
+<div class="card shadow-lg">
+    <div class="card-header bg-primary text-white">
+        <h3 class="mb-0">{{produto.nome}}</h3>
+    </div>
+    <div class="card-body">
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <p class="fs-5 mb-1">Preço: <span class="fw-bold text-success">R$ {{produto.preco}}</span></p>
+            </div>
+            <div class="col-md-6">
+                <p class="fs-5 mb-1">Estoque: <span class="fw-bold">{{produto.estoque}}</span> unidades</p>
+            </div>
+        </div>
+
+        <h4 class="border-bottom pb-2 mb-3"><i class="bi bi-list-ul"></i> Especificações Técnicas</h4>
+
+        {{#if (objectKeys produto.detalhes)}}
+        <ul class="list-group list-group-flush">
+            {{#each (objectKeys produto.detalhes)}}
+            <li class="list-group-item">
+                <span class="fw-bold text-capitalize">{{@key}}:</span> {{lookup ../produto.detalhes @key}}
+            </li>
+            {{/each}}
+        </ul>
+        {{else}}
+        <p class="text-muted">Nenhuma especificação técnica detalhada.</p>
+        {{/if}}
+    </div>
+    <div class="card-footer d-flex justify-content-end bg-light">
+        <a href="/" class="btn btn-secondary me-2">
+            <i class="bi bi-arrow-left"></i> Voltar
+        </a>
+        {{#if (eq produto.estoque 0)}}
+        <button class="btn btn-danger" disabled>
+            <i class="bi bi-bag-x"></i> Esgotado
+        </button>
+        {{else}}
+        <a href="/comprar/{{produto.id}}" class="btn btn-success">
+            <i class="bi bi-bag-plus"></i> Comprar
+        </a>
+        {{/if}}
+    </div>
+</div>

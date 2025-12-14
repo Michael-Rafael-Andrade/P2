@@ -1,8 +1,49 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    /* 1. Remove padding e centralização global para que o Navbar funcione */
+    padding: 0; 
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    /* text-align: center; foi removido e substituído por classes Bootstrap como text-center */
 }
 
 a {
-  color: #00B7FF;
+    color: #007bff; /* Usamos um azul padrão Bootstrap */
+}
+
+/* 2. Regras de Borda da Tabela (Opcional, mas mantém as bordas sólidas se as classes Bootstrap falharem) */
+table,
+th,
+td {
+    border: 1px solid #dee2e6; /* Cor de borda mais suave do Bootstrap */
+    border-collapse: collapse;
+}
+
+/* 3. Estilo e Layout da Tabela (Foco na Centralização e Proporção) */
+table {
+    margin-top: 80px;
+    /* CRUCIAL: Define uma largura para que a centralização funcione */
+    width: 80%; 
+    margin-left: auto;
+    margin-right: auto;
+    /* CRUCIAL: Força a tabela a respeitar as larguras definidas, evitando desproporção */
+    table-layout: fixed; 
+}
+
+/* 4. Estilo das Células da Tabela */
+th,
+td {
+    padding: 10px 15px;
+    text-align: center;
+    /* Garante que palavras longas sejam quebradas dentro das células fixas */
+    word-break: break-all;
+    min-width: 100px;
+    /* A centralização do texto dentro das células (text-align: center) já está na classe .text-center aplicada na view */
+}
+
+/* 5. Estilo para a linha horizontal */
+hr {
+    border: none;
+    height: 1px;
+    background-color: #ccc;
+    margin: 20px auto;
+    width: 50%;
 }
