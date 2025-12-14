@@ -1,2 +1,48 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<h1 class="mb-4">{{titulo_pagina}}</h1>
+
+{{#if tem_produtos}}
+<div class="row g-4">
+    {{#each produtos}}
+
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="card h-100 shadow-sm">
+
+            {{!-- Corpo do Card --}}
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title text-truncate">{{this.nome}}</h5>
+                <p class="card-text mb-1">
+  
+                    <span class="fw-bold fs-4 text-primary">R$ {{this.preco}}</span>
+                </p>
+                <p class="card-text text-muted mb-3">Estoque: {{this.estoque}} und.</p>
+            </div>
+
+            {{!-- Rodapé do Card com Ações --}}
+            <div class="card-footer d-flex justify-content-between bg-light">
+                <a href="/produto/{{this.id}}" class="btn btn-outline-secondary btn-sm me-2">
+                    <i class="bi bi-eye"></i> Detalhes
+                </a>
+
+                {{#if (eq this.estoque 0)}}
+                <button class="btn btn-danger btn-sm" disabled>
+                    <i class="bi bi-bag-x"></i> Esgotado
+                </button>
+                {{else}}
+                <a href="/comprar/{{this.id}}" class="btn btn-success btn-sm">
+                    <i class="bi bi-bag-plus"></i> Comprar
+                </a>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</div>
+
+{{else}}
+
+<div class="alert alert-info text-center mt-5" role="alert">
+    <h4><i class="bi bi-info-circle"></i> Não há produtos disponíveis.</h4>
+    <p class="mb-0">Acesse o link <a href="/povoamento">Povoamento Inicial</a> no menu superior para cadastrar dados de
+        teste.</p>
+</div>
+{{/if}}
