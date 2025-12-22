@@ -1,6 +1,5 @@
 // C:\Dev\Desenvolvimento Back-End-I\P2\eCommerce\model\Categoria.js
 const { DataTypes } = require('sequelize');
-s
 const sequelize = require('./server').sequelize; 
 
 // Definição do Model Categoria
